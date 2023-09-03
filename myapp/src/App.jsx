@@ -1,17 +1,23 @@
-import MyHeading from "./Components/MyHeading";
-import {MyHeading2} from "./Components/MyHeading"
+import Header from "./Components/Header";
+import "./styles/App.css";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from './Components/Home';
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+
+
 function App() {
-  return (
-    <>
-    <div>
-      <MyHeading />
-      <MyHeading2/>
-      <p>This is the paragraph</p>
-      <h1>This is the heading</h1>
-    </div>
-    </>  
+  return(
+    <Router>
+      <Header/>
+      <Routes>
+        <Route path="/" element = {<Home/>} />
+        <Route path="/about" element = {<About/>} />
+        <Route path="/contact" element = {<Contact/>} />
+        <Route path ="*" element ={<div>Page not found</div>}/>
+
+      </Routes>
+    </Router>
   );
 }
-
-
 export default App;
